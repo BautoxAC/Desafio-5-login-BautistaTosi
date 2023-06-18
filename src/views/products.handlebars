@@ -1,3 +1,22 @@
+<header>
+    <div>
+        <h1>Perfil</h1>
+        email:
+        {{email}}
+        <br>
+        <br>
+        Rol:
+        {{#if isAdmin}}Administrador{{else}}Usuario{{/if}}
+        <br>
+        <br >
+    </div>
+    <div>
+        <a href='/auth/administracion'>Ver datos super secretos</a>
+        <br>
+        <br >
+        <button><a href='/auth/logout'>Salir!</a</button>
+    </div>
+</header>
 <main>
     <h1>LISTADO DE PRODUCTOS:</h1>
     <ol class="productContainer">

@@ -1,12 +1,11 @@
-
-<form action="" class="logIn">
+<form action='/auth/login' method='POST' class="logIn">
     <fieldset>
         <h2>Inicia sesion</h2>
-        <label for="userName">Nombre de usuario</label>
-        <input type="text" id="userName" name="userName">
+        <label for="userName">Email de usuario</label>
+        <input type="email" id="email" name="email">
         <hr>
         <label for="userPassword">Contraseña</label>
-        <input type="password" id="userPassword" name="userPassword">
+        <input type="password" id="pass" name="pass">
         <hr>
         <input type="submit" id="buttonSumbit">
     </fieldset>

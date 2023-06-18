@@ -7,6 +7,3 @@ chatRouter.get("/", async (req, res) => {
     const messages = await MessageManager.getMessages()
     return res.render("chat", { logged, messages: messages.reverse(), user })
 })
-chatRouter.get("/AuthLogin", (req, res) => {
-    return res.render("AuthLogin")
-})

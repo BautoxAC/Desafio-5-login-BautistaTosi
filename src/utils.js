@@ -33,21 +33,10 @@ export function connectSocketServer(httpServer) {
   socketServer.on("connection", async (socket) => {
     console.log("cliente conectado")
     //vista /chat
-    const userManager = new UserManagerDB()
     const MessageManager = new MessageManagerDB()
     const list = new ProductManagerDB()
     const CartManager = new CartManagerDB()
-    socket.on("new_user_front_to_back", async (data) => {
-      let message = {}
-      try {
-        await userManager.addUsser(data.userPassword, data.userName)
-        message = { message: "Nice job", status: true, data: data.userName }
-      } catch (e) {
-        message = { message: "Something went wrong", status: false }
-        console.log(e)
-      }
-      socket.emit("logged_back_to_front", message)
-    })
+    
     socket.on("new_message_front_to_back", async (message, userName) => {
       try {
         await MessageManager.addMessage(message, userName)

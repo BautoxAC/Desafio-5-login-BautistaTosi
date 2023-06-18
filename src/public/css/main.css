@@ -119,3 +119,7 @@ form {
 .linkDetailContainer {
     position: relative;
 }
+.buttonAccount{
+    margin-left: 40%;
+    font-size: 1.5rem;
+}
