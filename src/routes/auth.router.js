@@ -13,6 +13,11 @@ authRouter.post('/login', async (req, res) => {
         return res.status(400).render('error', { error: 'ponga su email y pass' })
     }
     const usarioEncontrado = await userModel.findOne({ userName: email })
+    if (email === "adminCoder@coder.com" && pass === "adminCod3r123") {
+        req.session.email = email
+        req.session.isAdmin = true
+        return res.redirect('/products')
+    }
     if (usarioEncontrado && usarioEncontrado.userPassword == pass) {
         req.session.email = usarioEncontrado.userName
         req.session.isAdmin = usarioEncontrado.isAdmin
@@ -40,13 +45,14 @@ authRouter.post('/register', async (req, res) => {
         return res.status(400).render('error', { error: 'ponga correctamente los datos' })
     }
     try {
-        let isAdminBoolean = false
         if (email === "adminCoder@coder.com" && pass === "adminCod3r123") {
-            isAdminBoolean = true
+            req.session.email = email
+            req.session.isAdmin = true
+            return res.redirect('/products')
         }
-        await userModel.create({ userName: email, userPassword: pass, isAdmin: isAdminBoolean })
+        await userModel.create({ userName: email, userPassword: pass, isAdmin: false })
         req.session.email = email
-        req.session.isAdmin = isAdminBoolean
+        req.session.isAdmin = false
         return res.redirect('/products')
     } catch (e) {
         console.log(e)
