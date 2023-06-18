@@ -27,6 +27,8 @@ Documentación de las Dependecias:
 5. express-handlebars: [https://www.npmjs.com/package/express-handlebars]
 6. Mongoose: [https://mongoosejs.com]
 7. mongoose-paginate-v2: [https://github.com/aravindnc/mongoose-paginate-v2]
+8. express-session: [https://github.com/expressjs/session]
+9. connect-mongo: [https://www.npmjs.com/package/connect-mongo]
 
 ### `npm start`
 
