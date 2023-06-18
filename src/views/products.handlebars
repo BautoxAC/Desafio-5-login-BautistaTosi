@@ -1,0 +1,30 @@
+<main>
+    <h1>LISTADO DE PRODUCTOS:</h1>
+    <ol class="productContainer">
+        {{#each payload}}
+        <div class="linkDetailContainer">
+            <a href="http://localhost:8080/products/{{this._id}}" class="detailsLink" id="linkDetail{{this._id}}">
+                <li class="product" id="{{this._id}}">
+                    <h2>{{this.title}} </h2>
+                    <picture>{{#each this.thumbnails}}<img src="{{this}}">{{/each}}</picture>
+                    <p>Id: {{this._id}}</p>
+
+                </li>
+            </a>
+            <button id="agregateOne{{this._id}}" class="CartAgregate"><img src="http://localhost:8080/AgregaUno.png"
+                    alt="Agrega uno al carrito" title="Agrega uno al carrito"></button>
+        </div>
+        {{/each}}
+    </ol>
+</main>
+<footer class="paginationLinks" id="{{page}}">
+    {{#if hasPrevPage}}
+    <a href="{{prevLink}}">⬅️{{prevPage}}</a>
+    {{/if}}
+    <a href="#">{{page}}</a>
+    {{#if hasNextPage}}
+    <a href="{{nextLink}}">{{nextPage}}➡️</a>
+    {{/if}}
+</footer>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/productView.js"></script>
