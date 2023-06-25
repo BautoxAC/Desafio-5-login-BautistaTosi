@@ -11,6 +11,7 @@ import { authRouter } from "./routes/auth.router.js";
 import { __dirname, connectMongo, connectSocketServer } from "./utils.js"
 import { cartViewRouter } from "./routes/cartView.router.js"
 import { chatRouter } from "./routes/chat.router.js"
+import 'dotenv/config'
 const app = express()
 const port = 8080
 
@@ -24,8 +25,8 @@ app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "handlebars")
 app.use(
     session({
-        store: MongoStore.create({ mongoUrl: 'mongodb+srv://tosibautista:cp1xhHvnLrZzSDMQ@cluster0.so00fzx.mongodb.net/ecommerce', ttl: 7200 }),
-        secret: 'un-re-secreto34255234534grtghretyy54',
+        store: MongoStore.create({ mongoUrl: `${process.env.MONGO_LINK}`, ttl: 7200 }),
+        secret: `${process.env.SESSION_SECRET}`,
         resave: true,
         saveUninitialized: true,
     })

@@ -4,6 +4,7 @@ import { CartManagerDB } from "./DAO/DB/CartManagerDB.js"
 import { MessageManagerDB, UserManagerDB } from "./DAO/DB/MessageManagerDB.js"
 import { ProductManagerDB } from "./DAO/DB/ProductManagerDB.js"
 import { cartModel } from "./DAO/models/carts.model.js"
+import 'dotenv/config'
 //------------MULTER------------------
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -73,7 +74,7 @@ export function connectSocketServer(httpServer) {
 import { connect } from "mongoose"
 export async function connectMongo() {
   try {
-    await connect("mongodb+srv://tosibautista:cp1xhHvnLrZzSDMQ@cluster0.so00fzx.mongodb.net/ecommerce")
+    await connect(`${process.env.MONGO_LINK}`)
   } catch (e) {
     console.log(e)
     throw "can not connect to the db"
