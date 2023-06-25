@@ -1,6 +1,6 @@
 # Explicación
 
-Este proyecto es un API básica que sigue las consignas de la segunda preEntrega del proyecto final de CoderHouse funcionando con MongoDB y hay views hechas con handlebars. Para que funcione hace falta poner este link en MongoDB Compass [mongodb+srv://tosibautista:cp1xhHvnLrZzSDMQ@cluster0.so00fzx.mongodb.net/ecommerce] Ahora tiene un sistema de autenticacion basico en la vista /auth/register y /auth/login
+Este proyecto es un API básica que sigue las consignas de la segunda preEntrega del proyecto final de CoderHouse funcionando con MongoDB y hay views hechas con handlebars. Ahora tiene un sistema de autenticacion basico en la vista /auth/register y /auth/login
 
 ### Link de postman (donde estan se encuentran los endpoints del API)
 
